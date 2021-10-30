@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { conditionCurrent } from "../store/actions/acuuWeatherApiActions";
 import { Button } from "react-bootstrap";
 import { Snackbar } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import WeatherIcon from "./ui/WeatherIcon";
 import {
 	addFavorite,
@@ -97,16 +100,12 @@ function CurrentWeatherCard() {
 					variant="outline-light"
 					style={{
 						fontSize: "16px",
-						borderRadius: "100px",
+						borderRadius: "50px",
 						border: "none",
 					}}
 					onClick={handleFavorite}
 				>
-					{favIcon ? (
-						<i className="fas fa-heart" style={{ color: "salmon" }}></i>
-					) : (
-						<i className="far fa-heart" style={{ color: "salmon" }}></i>
-					)}
+					{favIcon ? <DoneOutlineIcon /> : <FavoriteBorderIcon />}
 				</Button>
 				<Snackbar
 					open={open}

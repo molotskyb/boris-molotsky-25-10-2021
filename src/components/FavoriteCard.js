@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { locationAutocompleteSearch } from "../store/actions/acuuWeatherApiActions";
 import WeatherIcon from "./ui/WeatherIcon";
+import classes from "./FavoriteCard.module.css";
 
 const FavoriteCard = ({ city, icon, temp, text }) => {
 	const dispatch = useDispatch();
@@ -19,33 +20,35 @@ const FavoriteCard = ({ city, icon, temp, text }) => {
 	};
 
 	return (
-		<Card
-			className="mx-auto text-center shadow"
-			style={{ border: "none", borderRadius: "20px" }}
-			bg={themeReducer.theme ? "light" : "dark"}
-			text={themeReducer.theme ? "dark" : "light"}
-		>
-			<Card.Header>
-				<h4>{city}</h4>
-			</Card.Header>
-			<Card.Body>
-				<WeatherIcon number={icon} width={50} />
-				<br />
-				<small>{text}</small>
-				<p>
-					{degreesReducer.degrees
-						? parseInt(temp)
-						: parseInt((temp * 9) / 5 + 32)}{" "}
-					{degreesReducer.degrees ? "°C" : "°F"}
-				</p>
-			</Card.Body>
-			<Button
-				variant={themeReducer.theme ? "light" : "dark"}
-				onClick={handleShowMore}
+		<section className={classes.container}>
+			<Card
+				className="mx-auto text-center shadow"
+				style={{ border: "none", borderRadius: "20px" }}
+				bg={themeReducer.theme ? "light" : "dark"}
+				text={themeReducer.theme ? "dark" : "light"}
 			>
-				Show More
-			</Button>
-		</Card>
+				<Card.Header>
+					<h4>{city}</h4>
+				</Card.Header>
+				<Card.Body>
+					<WeatherIcon number={icon} width={50} />
+					<br />
+					<small>{text}</small>
+					<p>
+						{degreesReducer.degrees
+							? parseInt(temp)
+							: parseInt((temp * 9) / 5 + 32)}{" "}
+						{degreesReducer.degrees ? "°C" : "°F"}
+					</p>
+				</Card.Body>
+				<Button
+					variant={themeReducer.theme ? "light" : "dark"}
+					onClick={handleShowMore}
+				>
+					Show More
+				</Button>
+			</Card>
+		</section>
 	);
 };
 
