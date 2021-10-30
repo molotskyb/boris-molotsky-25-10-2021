@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { conditionCurrent } from "../store/actions/acuuWeatherApiActions";
 import { Button } from "react-bootstrap";
 import { Snackbar } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import WeatherIcon from "./ui/WeatherIcon";
