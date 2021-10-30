@@ -1,0 +1,26 @@
+.container {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	background: linear-gradient(
+		to left,
+		rgb(0, 40, 170, 0.8),
+		rgba(78, 78, 255, 0.4)
+	);
+}
+
+.title {
+	grid-column: 1 / span 3;
+	padding: 1rem;
+	margin: 0.1rem;
+}
+
+.buttons {
+	grid-column: 5 / -1;
+	align-self: center;
+	justify-self: end;
+}
+
+button {
+	padding: 1rem;
+	margin-right: 1rem;
+}
