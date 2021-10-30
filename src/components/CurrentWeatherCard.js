@@ -20,7 +20,6 @@ function CurrentWeatherCard() {
 
 	const dispatch = useDispatch();
 
-	const themeReducer = useSelector(({ themeReducer }) => themeReducer);
 	const degreesReducer = useSelector(({ degreesReducer }) => degreesReducer);
 
 	const autocompleteSearchLocationReducer = useSelector(
