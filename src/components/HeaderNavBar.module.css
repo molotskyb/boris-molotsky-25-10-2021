@@ -1,4 +1,4 @@
-.container {
+.container-light {
 	display: grid;
 	grid-template-rows: auto;
 	grid-template-columns: repeat(6, 1fr);
@@ -7,6 +7,13 @@
 		rgb(0, 40, 170, 0.8),
 		rgba(78, 78, 255, 0.4)
 	);
+}
+.container-dark {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(6, 1fr);
+	color: white;
+	background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
 }
 
 .title {

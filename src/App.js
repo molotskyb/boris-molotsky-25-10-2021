@@ -8,27 +8,18 @@ import FavoritesPage from "./pages/FavoritesPage";
 function App() {
 	const themeReducer = useSelector(({ themeReducer }) => themeReducer);
 
-	const style = themeReducer.theme
-		? {
-				// background: "no-repeat",
-				// backgroundSize: "cover",
-				// backgroundColor: "#E0F50B ",
-				// minHeight: "100vh",
-				color: "black",
-		  }
-		: {
-				// background: "no-repeat",
-				// backgroundSize: "cover",
-				// backgroundColor: "#1c2949",
-				// minHeight: "100vh",
-				color: "white",
-		  };
 	return (
-		<section className={classes.container}>
+		<section
+			className={
+				themeReducer.theme
+					? classes["container-light"]
+					: classes["container-dark"]
+			}
+		>
 			<div className={classes.header}>
 				<HeaderNavBar />
 			</div>
-			<div className={classes.body} style={style}>
+			<div className={classes.body}>
 				<Switch>
 					<Route path="/" exact>
 						<HomePage />

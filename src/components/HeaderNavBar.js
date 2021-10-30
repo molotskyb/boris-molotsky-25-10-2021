@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Switch } from "@mui/material";
 import classes from "./HeaderNavBar.module.css";
 
@@ -19,7 +18,13 @@ function HeaderNavBar() {
 		dispatch(ToggleDegrees(e.target.checked));
 	};
 	return (
-		<section className={classes.container}>
+		<section
+			className={
+				themeReducer.theme
+					? classes["container-light"]
+					: classes["container-dark"]
+			}
+		>
 			<div className={classes.title}>
 				<h1> Weather App by Boris Molotsky</h1>
 			</div>

@@ -1,7 +1,5 @@
-// import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { NotificationManager } from "react-notifications";
-// import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import {
@@ -28,39 +26,36 @@ function SearchLocation(props) {
 		}
 	};
 
-	// const useStyles = makeStyles((theme) => ({
-	// 	root: {
-	// 		"& .MuiOutlinedInput-root": {
-	// 			// - The Input-root, inside the TextField-root
-	// 			"& fieldset": {
-	// 				// - The <fieldset> inside the Input-root
-	// 				borderColor: `${themeReducer.theme ? "black" : "white"}`, // - Set the Input border
-	// 			},
-	// 			"&:hover fieldset": {
-	// 				borderColor: `${themeReducer.theme ? "black" : "white"}`, // - Set the Input border when parent has :hover
-	// 			},
-	// 			"&.Mui-focused fieldset": {
-	// 				// - Set the Input border when parent is focused
-	// 				borderColor: `${themeReducer.theme ? "black" : "white"}`,
-	// 			},
-	// 		},
-	// 		"& .MuiFormLabel-root": {
-	// 			color: `${themeReducer.theme ? "black" : "white"}`,
-	// 		},
-	// 	},
-	// 	inputRoot: {
-	// 		color: `${themeReducer.theme ? "black" : "white"}`,
-	// 	},
-	// }));
+	const useStyles = makeStyles((theme) => ({
+		root: {
+			"& .MuiOutlinedInput-root": {
+				"& fieldset": {
+					borderColor: `${themeReducer.theme ? "black" : "white"}`,
+				},
+				"&:hover fieldset": {
+					borderColor: `${themeReducer.theme ? "black" : "white"}`,
+				},
+				"&.Mui-focused fieldset": {
+					borderColor: `${themeReducer.theme ? "black" : "white"}`,
+				},
+			},
+			"& .MuiFormLabel-root": {
+				color: `${themeReducer.theme ? "black" : "white"}`,
+			},
+		},
+		inputRoot: {
+			color: `${themeReducer.theme ? "black" : "white"}`,
+		},
+	}));
 
-	// const classes = useStyles();
+	const classes = useStyles();
 
 	return (
 		<div>
 			<Autocomplete
 				id="weather-location"
 				sx={{ width: 300 }}
-				// classes={classes}
+				classes={classes}
 				options={autocompleteSearchListReducer.locations}
 				getOptionLabel={(option) =>
 					`${option.LocalizedName} , ${option.Country.LocalizedName}`
