@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { conditionCurrent } from "../store/actions/acuuWeatherApiActions";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Snackbar } from "@mui/material";
 import WeatherIcon from "./ui/WeatherIcon";
 import {
@@ -10,6 +10,7 @@ import {
 	removeFavorite,
 	checkIfFavoriteExist,
 } from "../utils/ManageFavorites";
+import classes from "./CurrentWeatherCard.module.css";
 
 function CurrentWeatherCard() {
 	const [open, setOpen] = useState(false);
@@ -83,83 +84,74 @@ function CurrentWeatherCard() {
 	};
 
 	return (
-		<div>
-			{" "}
-			<Row className="py-3">
-				<Col md={6} className="mx-auto">
-					<Card
-						className="mx-auto text-center shadow"
-						style={{ border: "none", borderRadius: "20px" }}
-						bg={themeReducer.theme ? "light" : "dark"}
-						text={themeReducer.theme ? "dark" : "light"}
-					>
-						<Card.Header>
-							<h1>
-								{!autocompleteSearchLocationReducer.location.length
-									? "Tel Aviv"
-									: autocompleteSearchLocationReducer.location[0].LocalizedName}
-							</h1>
-						</Card.Header>
-						<Card.Body>
-							{!currentConditionReducer.currentCondition.length ? (
-								""
-							) : (
-								<WeatherIcon
-									number={
-										currentConditionReducer.currentCondition[0].WeatherIcon
-									}
-									width={200}
-								/>
-							)}
-							<h1>
-								{!currentConditionReducer.currentCondition.length
-									? ""
-									: degreesReducer.degrees
-									? parseInt(
-											currentConditionReducer.currentCondition[0].Temperature
-												.Metric.Value
-									  )
-									: parseInt(
-											(currentConditionReducer.currentCondition[0].Temperature
-												.Metric.Value *
-												9) /
-												5 +
-												32
-									  )}{" "}
-								{degreesReducer.degrees ? "°C" : "°F"}
-							</h1>
-							<p>
-								{!currentConditionReducer.currentCondition.length
-									? ""
-									: currentConditionReducer.currentCondition[0].WeatherText}
-							</p>
-
-							<Button
-								variant="outline-light"
-								style={{
-									fontSize: "16px",
-									borderRadius: "100px",
-									border: "none",
-								}}
-								onClick={handleFavorite}
-							>
-								{favIcon ? (
-									<i className="fas fa-heart" style={{ color: "salmon" }}></i>
-								) : (
-									<i className="far fa-heart" style={{ color: "salmon" }}></i>
-								)}
-							</Button>
-							<Snackbar
-								open={open}
-								autoHideDuration={2000}
-								onClose={handleClose}
-								message="Favorites updated"
-							></Snackbar>
-						</Card.Body>
-					</Card>
-				</Col>
-			</Row>
-		</div>
+		<section className={classes.container}>
+			<div className={classes.header}>
+				<h1>
+					{!autocompleteSearchLocationReducer.location.length
+						? "Tel Aviv"
+						: autocompleteSearchLocationReducer.location[0].LocalizedName}
+				</h1>
+			</div>
+			<div className={classes.btn}>
+				<Button
+					variant="outline-light"
+					style={{
+						fontSize: "16px",
+						borderRadius: "100px",
+						border: "none",
+					}}
+					onClick={handleFavorite}
+				>
+					{favIcon ? (
+						<i className="fas fa-heart" style={{ color: "salmon" }}></i>
+					) : (
+						<i className="far fa-heart" style={{ color: "salmon" }}></i>
+					)}
+				</Button>
+				<Snackbar
+					open={open}
+					autoHideDuration={2000}
+					onClose={handleClose}
+					message="Favorites updated"
+				></Snackbar>
+			</div>
+			<div className={classes.body}>
+				{!currentConditionReducer.currentCondition.length ? (
+					""
+				) : (
+					<WeatherIcon
+						number={currentConditionReducer.currentCondition[0].WeatherIcon}
+						width={200}
+					/>
+				)}
+			</div>
+			<div className={classes.temp}>
+				<h1>
+					{!currentConditionReducer.currentCondition.length
+						? ""
+						: degreesReducer.degrees
+						? parseInt(
+								currentConditionReducer.currentCondition[0].Temperature.Metric
+									.Value
+						  )
+						: parseInt(
+								(currentConditionReducer.currentCondition[0].Temperature.Metric
+									.Value *
+									9) /
+									5 +
+									32
+						  )}{" "}
+					{degreesReducer.degrees ? "°C" : "°F"}
+				</h1>
+			</div>
+			<div className={classes.condition}>
+				<p>
+					{!currentConditionReducer.currentCondition.length
+						? ""
+						: currentConditionReducer.currentCondition[0].WeatherText}
+				</p>
+			</div>
+		</section>
 	);
 }
 

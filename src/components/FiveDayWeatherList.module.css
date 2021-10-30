@@ -1,0 +1,12 @@
+.container {
+	display: grid;
+	grid-template-rows: 15vh;
+	grid-template-columns: repeat(5, 0.5fr);
+	justify-items: stretch;
+	align-items: stretch;
+}
+
+.body {
+	grid-column: 1 / span -1;
+	padding: 2rem;
+}

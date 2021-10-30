@@ -1,5 +1,6 @@
 .container {
 	display: grid;
+	grid-template-rows: auto;
 	grid-template-columns: repeat(6, 1fr);
 	background: linear-gradient(
 		to left,
@@ -10,12 +11,15 @@
 
 .title {
 	grid-column: 1 / span 3;
+	grid-row: 1 / span 1;
 	padding: 1rem;
 	margin: 0.1rem;
+	align-self: center;
 }
 
 .buttons {
 	grid-column: 5 / -1;
+	grid-row: 1 / span 1;
 	align-self: center;
 	justify-self: end;
 }
@@ -23,4 +27,18 @@
 button {
 	padding: 1rem;
 	margin-right: 1rem;
+}
+
+.temp {
+	grid-column: 3 / span 1;
+	grid-row: 1 / span 1;
+	align-self: center;
+	justify-self: center;
+}
+
+.mode {
+	grid-column: 4 / span 1;
+	grid-row: 1 / span 1;
+	align-self: center;
+	justify-self: center;
 }
