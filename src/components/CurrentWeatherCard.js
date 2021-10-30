@@ -100,11 +100,12 @@ function CurrentWeatherCard() {
 					variant="outline-light"
 					style={{
 						fontSize: "16px",
-						borderRadius: "50px",
+						// borderRadius: "50px",
 						border: "none",
 					}}
 					onClick={handleFavorite}
 				>
+					{favIcon ? <p>In Favorites</p> : <p>Add To Favorites</p>}
 					{favIcon ? <DoneOutlineIcon /> : <FavoriteBorderIcon />}
 				</Button>
 				<Snackbar
