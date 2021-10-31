@@ -8,14 +8,17 @@ export const autocompleteSearchListReducer = (
 				locations: action.payload,
 			};
 		case "AUTOCOMPLETE_SEARCH_LIST_FAIL":
-			return { error: action.payload };
+			// return { error: action.payload };
+			return state;
 		default:
 			return state;
 	}
 };
 
 export const autocompleteSearchLocationReducer = (
-	state = { location: [] },
+	state = {
+		location: [],
+	},
 	action
 ) => {
 	switch (action.type) {
@@ -24,14 +27,18 @@ export const autocompleteSearchLocationReducer = (
 				location: action.payload,
 			};
 		case "AUTOCOMPLETE_SEARCH_LOCATION_FAIL":
-			return { error: action.payload };
+			// return { error: action.payload };
+			return state;
 		default:
 			return state;
 	}
 };
 
 export const currentConditionReducer = (
-	state = { currentCondition: [] },
+	//test setup value
+	state = {
+		currentCondition: [],
+	},
 	action
 ) => {
 	switch (action.type) {
@@ -40,14 +47,18 @@ export const currentConditionReducer = (
 				currentCondition: action.payload,
 			};
 		case "CURRENT_CONDITION_FAIL":
-			return { error: action.payload };
+			// return { error: action.payload };
+			return state;
 		default:
 			return state;
 	}
 };
 
 export const fiveDaysConditionReducer = (
-	state = { fiveDaysCondition: {} },
+	//test setup value
+	state = {
+		fiveDaysCondition: [],
+	},
 	action
 ) => {
 	switch (action.type) {
@@ -56,7 +67,8 @@ export const fiveDaysConditionReducer = (
 				fiveDaysCondition: action.payload,
 			};
 		case "FIVE_DAYS_CONDITION_FAIL":
-			return { error: action.payload };
+			// return { error: action.payload };
+			return state;
 		default:
 			return state;
 	}
