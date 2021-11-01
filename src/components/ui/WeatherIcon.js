@@ -18,7 +18,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={sunny}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			) : number >= 6 && number < 12 ? (
 				//cloudy
@@ -27,7 +26,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={cloudy}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			) : number >= 12 && number < 19 ? (
 				//rain
@@ -36,7 +34,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={rainy}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			) : number >= 19 && number < 33 ? (
 				//snow
@@ -45,7 +42,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={snowy}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			) : number >= 33 && number < 39 ? (
 				//night
@@ -54,7 +50,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={night}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			) : number >= 39 && number < 44 ? (
 				//storm
@@ -63,7 +58,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={thunder}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			) : (
 				//general weather
@@ -72,7 +66,6 @@ const WeatherIcon = ({ number, width }) => {
 					src={weather}
 					width={width}
 					style={{ borderRadius: "5px" }}
-					className="d-inline-block align-top"
 				/>
 			)}
 		</>
