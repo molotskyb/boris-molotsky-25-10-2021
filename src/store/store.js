@@ -4,7 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { themeReducer } from "./reducers/themeReducers";
 import { degreesReducer } from "./reducers/degreesReducers";
-
+import { notificationReducer } from "./reducers/notificationReducer";
 import {
 	autocompleteSearchListReducer,
 	autocompleteSearchLocationReducer,
@@ -19,6 +19,7 @@ const reducer = combineReducers({
 	autocompleteSearchLocationReducer,
 	currentConditionReducer,
 	fiveDaysConditionReducer,
+	notificationReducer,
 });
 
 const initialState = {};
