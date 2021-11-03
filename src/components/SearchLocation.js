@@ -16,11 +16,13 @@ function SearchLocation(props) {
 	const themeReducer = useSelector(({ themeReducer }) => themeReducer);
 
 	const handleSearchList = (e) => {
+		e.preventDefault();
 		if (!e.target.value.startsWith(" ") && e.target.value !== "") {
 			dispatch(listAutocompleteSearch(e.target.value));
 		}
 	};
-	const handleSearchLocation = (event, values) => {
+	const handleSearchLocation = (e, values) => {
+		e.preventDefault();
 		if (values) {
 			dispatch(locationAutocompleteSearch(values.LocalizedName));
 		}

@@ -10,6 +10,7 @@ import sunny from "../../images/icons/sunny.svg";
 
 const WeatherIcon = ({ number, width }) => {
 	return (
+		// number-- icon number return from api
 		<>
 			{number >= 0 && number < 6 ? (
 				//sunny
