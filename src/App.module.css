@@ -6,7 +6,7 @@
 }
 .container-dark {
 	display: grid;
-	grid-template-rows: 15vh 140vh;
+	grid-template-rows: 15vh 200vh;
 	grid-template-columns: repeat(6, 1fr);
 	background-color: #0d543b;
 	color: white;
