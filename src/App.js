@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classes from "./App.module.css";
 import HeaderNavBar from "./components/HeaderNavBar";
@@ -32,6 +32,9 @@ function App() {
 			<div className={classes.body}>
 				<Switch>
 					<Route path="/" exact>
+						<Redirect to="/home" />
+					</Route>
+					<Route path="/home">
 						<HomePage />
 					</Route>
 					<Route path="/favorites">

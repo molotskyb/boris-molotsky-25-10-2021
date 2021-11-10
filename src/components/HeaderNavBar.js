@@ -39,7 +39,7 @@ function HeaderNavBar() {
 				<span>Dark</span>
 			</div>
 			<div className={classes.buttons}>
-				<Link to="/">
+				<Link to="/home">
 					<button>Home</button>
 				</Link>
 				<Link to="/favorites">

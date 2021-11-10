@@ -8,6 +8,9 @@ const FiveDayWeatherCard = ({ date, dayIcon, nightIcon, minTemp, maxTemp }) => {
 	const themeReducer = useSelector(({ themeReducer }) => themeReducer);
 	const degreesReducer = useSelector(({ degreesReducer }) => degreesReducer);
 
+	const celsiusTemp = parseInt(maxTemp);
+	const fahrenheitTemp = parseInt((minTemp * 9) / 5 + 32);
+
 	return (
 		<section className={classes.container}>
 			<Card
@@ -26,9 +29,7 @@ const FiveDayWeatherCard = ({ date, dayIcon, nightIcon, minTemp, maxTemp }) => {
 							<br />
 							<small>DAY</small>
 							<p>
-								{degreesReducer.degrees
-									? parseInt(maxTemp)
-									: parseInt((maxTemp * 9) / 5 + 32)}{" "}
+								{degreesReducer.degrees ? celsiusTemp : fahrenheitTemp}{" "}
 								{degreesReducer.degrees ? "°C" : "°F"}
 							</p>
 						</Col>
@@ -37,9 +38,7 @@ const FiveDayWeatherCard = ({ date, dayIcon, nightIcon, minTemp, maxTemp }) => {
 							<br />
 							<small>NIGHT</small>
 							<p>
-								{degreesReducer.degrees
-									? parseInt(minTemp)
-									: parseInt((minTemp * 9) / 5 + 32)}{" "}
+								{degreesReducer.degrees ? celsiusTemp : fahrenheitTemp}{" "}
 								{degreesReducer.degrees ? "°C" : "°F"}
 							</p>
 						</Col>

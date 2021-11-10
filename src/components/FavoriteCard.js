@@ -14,6 +14,9 @@ const FavoriteCard = ({ city, icon, temp, text }) => {
 
 	let history = useHistory();
 
+	const celsiusTemp = parseInt(temp);
+	const fahrenheitTemp = parseInt((temp * 9) / 5 + 32);
+
 	const handleShowMore = () => {
 		dispatch(locationAutocompleteSearch(city));
 		history.push("/");
@@ -35,9 +38,7 @@ const FavoriteCard = ({ city, icon, temp, text }) => {
 					<br />
 					<small>{text}</small>
 					<p>
-						{degreesReducer.degrees
-							? parseInt(temp)
-							: parseInt((temp * 9) / 5 + 32)}{" "}
+						{degreesReducer.degrees ? celsiusTemp : fahrenheitTemp}{" "}
 						{degreesReducer.degrees ? "°C" : "°F"}
 					</p>
 				</Card.Body>
