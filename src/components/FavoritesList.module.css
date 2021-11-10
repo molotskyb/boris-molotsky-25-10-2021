@@ -2,13 +2,12 @@
 	display: grid;
 	grid-template-rows: auto;
 	grid-template-columns: repeat(8, 1fr);
-	align-items: center;
-	justify-items: center;
 }
 
 .list {
 	grid-column: 1 / -1;
-	grid-row: 1 / span 1;
+	align-items: center;
+	justify-items: center;
 	padding: 3rem;
 	display: flex;
 }

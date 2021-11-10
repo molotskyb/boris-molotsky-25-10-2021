@@ -3,6 +3,7 @@ import { myApiKey } from "../../config/config";
 
 let accuWeatherApiKey = myApiKey;
 
+//// Thunk:
 export const listAutocompleteSearch = (searchWord) => async (dispatch) => {
 	try {
 		const { data } = await axios.get(

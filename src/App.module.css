@@ -1,12 +1,12 @@
 .container-light {
 	display: grid;
-	grid-template-rows: 10vh auto;
+	grid-template-rows: 15vh auto;
 	grid-template-columns: repeat(6, 1fr);
 	/* background-color: black; */
 }
 .container-dark {
 	display: grid;
-	grid-template-rows: 10vh 140vh;
+	grid-template-rows: 15vh 140vh;
 	grid-template-columns: repeat(6, 1fr);
 	background-color: #0d543b;
 	color: white;
@@ -19,5 +19,5 @@
 
 .body {
 	grid-column: 1 / -1;
-	grid-row: 2 / span 9;
+	grid-row: 2 / -1;
 }
