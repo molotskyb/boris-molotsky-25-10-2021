@@ -21,6 +21,7 @@ function SearchLocation(props) {
 			dispatch(listAutocompleteSearch(e.target.value));
 		}
 	};
+
 	const handleSearchLocation = (e, values) => {
 		e.preventDefault();
 		if (values) {
