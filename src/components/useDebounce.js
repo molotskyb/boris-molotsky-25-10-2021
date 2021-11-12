@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// Custom hook
 const useDebounce = (val, delay = 600) => {
 	const [debouncedVal, setDebouncedVal] = useState(val);
 

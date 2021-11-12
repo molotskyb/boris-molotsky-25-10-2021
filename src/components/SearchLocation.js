@@ -21,7 +21,7 @@ function SearchLocation(props) {
 
 	const [searchLocation, setSearchLocation] = useState("");
 
-	const debouncedLocationName = useDebounce(searchLocation, 700);
+	const debouncedLocationName = useDebounce(searchLocation);
 
 	console.log(debouncedLocationName);
 
