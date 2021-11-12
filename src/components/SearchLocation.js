@@ -1,4 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -6,6 +8,8 @@ import {
 	listAutocompleteSearch,
 	locationAutocompleteSearch,
 } from "../store/actions/acuuWeatherApiActions";
+
+import useDebounce from "./useDebounce";
 
 function SearchLocation(props) {
 	const dispatch = useDispatch();
@@ -15,12 +19,20 @@ function SearchLocation(props) {
 
 	const themeReducer = useSelector(({ themeReducer }) => themeReducer);
 
-	const handleSearchList = (e) => {
-		e.preventDefault();
-		if (!e.target.value.startsWith(" ") && e.target.value !== "") {
-			dispatch(listAutocompleteSearch(e.target.value));
+	const [searchLocation, setSearchLocation] = useState("");
+
+	const debouncedLocationName = useDebounce(searchLocation, 700);
+
+	console.log(debouncedLocationName);
+
+	useEffect(() => {
+		if (
+			!debouncedLocationName.startsWith(" ") &&
+			debouncedLocationName !== ""
+		) {
+			dispatch(listAutocompleteSearch(debouncedLocationName));
 		}
-	};
+	}, [debouncedLocationName, dispatch]);
 
 	const handleSearchLocation = (e, values) => {
 		e.preventDefault();
@@ -70,7 +82,7 @@ function SearchLocation(props) {
 						{...params}
 						label="Enter location here"
 						variant="outlined"
-						onChange={handleSearchList}
+						onChange={(e) => setSearchLocation(e.target.value)}
 					/>
 				)}
 			/>
