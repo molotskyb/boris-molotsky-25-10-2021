@@ -23,8 +23,6 @@ function SearchLocation(props) {
 
 	const debouncedLocationName = useDebounce(searchLocation);
 
-	console.log(debouncedLocationName);
-
 	useEffect(() => {
 		if (
 			!debouncedLocationName.startsWith(" ") &&
